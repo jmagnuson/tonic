@@ -9,7 +9,7 @@ static SIMPLE_LOGGER: SimpleLogger = SimpleLogger;
 
 impl log::Log for SimpleLogger {
     fn enabled(&self, metadata: &log::Metadata) -> bool {
-        true
+        log::max_level() >= metadata.level()
     }
 
     fn log(&self, record: &log::Record) {
